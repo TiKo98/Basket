@@ -26,7 +26,7 @@ public class SceneMenuReceiver : InteractionReceiver {
         currentScene = mScene.name;
     }
 
-    private void OnSceneUnloaded(Scene mScene) {
+    private void OnSceneUnloaded(Scene mScene) {         
         currentScene = "MainScene";
     }
 
@@ -37,14 +37,21 @@ public class SceneMenuReceiver : InteractionReceiver {
                 break;
 
             default:
-                RemoveScene(currentScene);
-                LoadScene(obj.name.Replace("Btn", ""));
+                string selectedSceneName = obj.name.Replace("Btn", "");
+
+                //check if selected scene is already active
+                //if yes, check if a handler for this scene exists, load scene if not
+                if (!currentScene.Equals(selectedSceneName) || 
+                    !HandleSceneSelection(selectedSceneName)) {
+                    //load selected scene
+                    LoadScene(selectedSceneName);
+                }
                 break;
         }
     }
 
     private void RemoveScene(string mSceneName) {
-        if (mSceneName.Equals("MainScene")) {
+        if (currentScene.Equals("MainScene")) {
             return;
         }
 
@@ -52,6 +59,29 @@ public class SceneMenuReceiver : InteractionReceiver {
     }
 
     private void LoadScene(string mSceneName) {
+        //remove current scene
+        RemoveScene(currentScene);
+        //Load new scene
         SceneManager.LoadScene(mSceneName, LoadSceneMode.Additive);
+    }
+
+    /// <summary>
+    /// Use this to handle what should happen if a currently active scene is selected again.
+    /// </summary>
+    /// <param name="mSceneName">Name of the scene that is selected from the menu</param>
+    /// <returns>True if a handler for the scene exists, else/default false</returns>
+    private bool HandleSceneSelection(string mSceneName) {
+        switch (mSceneName) {
+            case "AdessoLogo":
+                AdessoLogoManager.Instance.AddKlotz();
+                return true;
+
+            case "TargetSphere":
+                TargetSphereManager.Instance.AddKlotz();
+                return true;
+
+            default:
+                return false;
+        }
     }
 }

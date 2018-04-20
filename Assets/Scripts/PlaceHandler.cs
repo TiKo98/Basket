@@ -35,18 +35,15 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        Debug.Log("Bis hier hin");
         isPlacing = !isPlacing;
         if (isPlacing)
         {
-        Debug.Log("Bis hier hin2");
             billboard.enabled = true;
             rigi.useGravity = false;
             rigi.isKinematic = true;
         }
         else
         {
-        Debug.Log("Bis hier hin3");
             billboard.enabled = false;
             rigi.useGravity = true;
             rigi.isKinematic = false;

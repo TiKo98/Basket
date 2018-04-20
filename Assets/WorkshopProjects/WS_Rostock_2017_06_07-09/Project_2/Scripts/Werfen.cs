@@ -30,7 +30,6 @@ public class Werfen : MonoBehaviour, IInputClickHandler
     void Start()
     {
         spatialManager = SpatialMappingManager.Instance;
-        UIManager.Instance.ToolboxVisible(false);
 
     }
 
@@ -38,7 +37,6 @@ public class Werfen : MonoBehaviour, IInputClickHandler
     {   
         isPlacing = false;
         rigi.velocity = gameObject.transform.forward * 5;
-        UIManager.Instance.ToolboxVisibleAfterSeconds(true, 2);
     }
 
     private void Update()
@@ -57,7 +55,7 @@ public class Werfen : MonoBehaviour, IInputClickHandler
 
         if (transform.position.y < -50)
         {
-            KlotzManager.Instance.RemoveKlotz(transform.parent.gameObject);
+            TargetSphereManager.Instance.RemoveKlotz(transform.parent.gameObject);
         }
 
     }

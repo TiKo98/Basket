@@ -1,33 +1,35 @@
 ﻿using HoloToolkit.Unity;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-public class KlotzManager : Singleton<KlotzManager>
-{
+public abstract class KlotzManager : Singleton<KlotzManager> {
+    [SerializeField]
+    private GameObject klotzHolder;
+    [SerializeField]
+    private List<GameObject> KlotzList;
 
-    public GameObject klotzHolder;
-
-    public List<GameObject> KlotzList;
-
-    private void Start() {
+    public virtual void Start() {
         KlotzList = new List<GameObject>();
+
+        if(klotzHolder == null) {
+            klotzHolder = this.gameObject;
+        }
     }
 
-    internal GameObject AddKlotz(GameObject klotzPrefab)
-    {   
+    public abstract GameObject AddKlotz();
+
+    public virtual GameObject AddKlotz(GameObject klotzPrefab) {   
         GameObject klotz = Instantiate(klotzPrefab, klotzHolder.transform);
         KlotzList.Add(klotz);
         return klotz;
     }
 
-    internal void RemoveKlotz(GameObject klotzGameobject) {
+    public virtual void RemoveKlotz(GameObject klotzGameobject) {
         KlotzList.Remove(klotzGameobject);
         Destroy(klotzGameobject);
     }
 
-    internal void RemoveAllKlotzes() {
+    public virtual void RemoveAllKlotzes() {
         foreach(GameObject klotz in KlotzList) {
             Destroy(klotz);
         }

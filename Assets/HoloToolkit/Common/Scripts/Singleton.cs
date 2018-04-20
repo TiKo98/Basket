@@ -33,7 +33,7 @@ namespace HoloToolkit.Unity
                     if (objects.Length == 1)
                     {
                         instance = objects[0];
-                        instance.gameObject.GetParentRoot().DontDestroyOnLoad();
+                        //instance.gameObject.GetParentRoot().DontDestroyOnLoad();
                     }
                     else if (objects.Length > 1)
                     {
@@ -87,7 +87,7 @@ namespace HoloToolkit.Unity
             {
                 instance = (T)this;
                 searchForInstance = false;
-                gameObject.GetParentRoot().DontDestroyOnLoad();
+                //gameObject.GetParentRoot().DontDestroyOnLoad();
             }
         }
 
