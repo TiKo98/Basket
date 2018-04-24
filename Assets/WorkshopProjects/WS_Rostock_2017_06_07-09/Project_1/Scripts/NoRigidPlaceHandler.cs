@@ -38,7 +38,6 @@ public class NoRigidPlaceHandler : MonoBehaviour, IInputClickHandler
         if (isPlacing)
         {
             billboard.enabled = true;
-            UIManager.Instance.ToolboxVisible(false);
         }
         else
         {

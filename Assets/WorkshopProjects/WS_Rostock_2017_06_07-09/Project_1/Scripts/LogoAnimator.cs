@@ -13,13 +13,11 @@ public class LogoAnimator : MonoBehaviour, IInputClickHandler {
 
     public void OnInputClicked(InputClickedEventData eventData)
     {
-        UIManager.Instance.ToolboxVisible(false);
         if (isOut == false)
         {
             pos1 = transform.position;
             direction = new Vector3(pos1.x, 0, pos1.z);
             isMoving = true;
-            UIManager.Instance.ToolboxVisible(true);
         }
     }
 	// Update is called once per frame

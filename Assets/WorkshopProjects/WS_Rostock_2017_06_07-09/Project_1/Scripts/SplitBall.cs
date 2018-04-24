@@ -29,7 +29,6 @@ public class SplitBall : MonoBehaviour, IInputClickHandler {
                 isSplitting = false;
                 isSplitted = true;
                 this.GetComponent<Collider>().enabled = false;
-                UIManager.Instance.ToolboxVisible(true);
             }
         }
 	}
