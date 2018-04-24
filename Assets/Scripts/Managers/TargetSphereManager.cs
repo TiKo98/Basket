@@ -1,4 +1,5 @@
-﻿using HoloToolkit.Unity.Collections;
+﻿using HoloToolkit.Unity;
+using HoloToolkit.Unity.Collections;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,41 +9,43 @@ public class TargetSphereManager : KlotzManager {
     [Tooltip("Target sphere prefab")]
     private GameObject TargetSphere;
 
-    [SerializeField]
-    [Tooltip("Bullet prefab")]
-    private GameObject Bullet;
-
-    [SerializeField]
-    [Tooltip("Bullet button prefab")]
-    private GameObject BtnReloadBulletPrefab;
     private GameObject BtnReloadBullet;
     
-    public override GameObject AddKlotz() {
-        GameObject newTarget = base.AddKlotz(TargetSphere);
-        newTarget.transform.localPosition = new Vector3(Random.Range(-3f, 3f),
-                                                        Random.Range(-3f, 3f),
-                                                        Random.Range(-3f, 3f));
-        return newTarget;
-    }
+
 
     public override void Start() {
         base.Start();
 
+        AddKlotz();
         AddReloadBulletButton();
     }
 
     protected override void OnDestroy() {
-        base.OnDestroy();
-
         RemoveReloadBulletButton();
+
+        base.OnDestroy();
+    }
+
+    public override GameObject AddKlotz() {
+        GameObject newTarget = base.AddKlotz(TargetSphere);
+
+        Vector3 variation = new Vector3(Random.Range(-3f, 3f),
+                                        Random.Range(-1.5f, 1.5f),
+                                        Random.Range(-3f, 3f)); 
+        Vector3 newPosition = CameraCache.Main.transform.position - variation;
+
+        //change position to add target somewhere around the player
+        newTarget.transform.localPosition = newPosition;
+        return newTarget;
     }
 
     private void AddReloadBulletButton() {
         //get tools content
         GameObject toolsContent = GameObject.FindGameObjectWithTag("SceneSelectionMenuToolsContent");
-        //add reload bullet button
-        BtnReloadBullet = Instantiate(BtnReloadBulletPrefab, toolsContent.transform);
-        BtnReloadBullet.name = "BtnReloadBullet";
+
+        //get reload bullet button and set active
+        BtnReloadBullet = toolsContent.transform.Find("BtnReloadBullet").gameObject;
+        BtnReloadBullet.SetActive(true);
         //update object collection
         toolsContent.GetComponent<ObjectCollection>().UpdateCollection();
 
@@ -51,13 +54,11 @@ public class TargetSphereManager : KlotzManager {
     }
 
     private void RemoveReloadBulletButton() {
-        //destroy reload bullet button
-        Destroy(BtnReloadBullet);
+        //deactivate reload bullet button 
+        BtnReloadBullet.SetActive(false);
+
         GameObject toolsContent = GameObject.FindGameObjectWithTag("SceneSelectionMenuToolsContent");
         //update object collection
         toolsContent.GetComponent<ObjectCollection>().UpdateCollection();
-
-        //remove bullet reload button to receiver
-        GetComponent<TargetSphereReceiver>().interactables.Remove(BtnReloadBullet);
     }
 }

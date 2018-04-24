@@ -26,7 +26,7 @@ public class SceneMenuReceiver : InteractionReceiver {
         currentScene = mScene.name;
     }
 
-    private void OnSceneUnloaded(Scene mScene) {         
+    private void OnSceneUnloaded(Scene mScene) {
         currentScene = "MainScene";
     }
 

@@ -156,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   klotzHolder: {fileID: 418676680}
   KlotzList: []
+  AdessoLogoPrefab: {fileID: 1953002146470974, guid: 80dfe4029dc294047a611533c42f2c29,
+    type: 2}
 --- !u!1001 &724821460
 Prefab:
   m_ObjectHideFlags: 0

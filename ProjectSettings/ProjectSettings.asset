@@ -629,7 +629,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: adesso AG
   metroCertificateIssuer: adesso AG
-  metroCertificateNotAfter: 00e11921d8e4d401
+  metroCertificateNotAfter: 0060d068b8fad401
   metroApplicationDescription: Demo App for Workshop
   wsaImages: {}
   metroTileShortName: Workshop-Kloetzchen
