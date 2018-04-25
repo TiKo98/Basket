@@ -29,10 +29,12 @@ public class TargetSphereManager : KlotzManager {
     public override GameObject AddKlotz() {
         GameObject newTarget = base.AddKlotz(TargetSphere);
 
-        Vector3 variation = new Vector3(Random.Range(-3f, 3f),
-                                        Random.Range(-1.5f, 1.5f),
-                                        Random.Range(-3f, 3f)); 
-        Vector3 newPosition = CameraCache.Main.transform.position - variation;
+        Vector3 variation = new Vector3(Random.Range(-0.75f, 0.75f),
+                                        Random.Range(-0.75f, 0.75f),
+                                        Random.Range(-0.75f, 0.75f));
+
+        Vector3 newPosition = CameraCache.Main.transform.forward * 2 + variation + CameraCache.Main.transform.position;
+
 
         //change position to add target somewhere around the player
         newTarget.transform.localPosition = newPosition;
