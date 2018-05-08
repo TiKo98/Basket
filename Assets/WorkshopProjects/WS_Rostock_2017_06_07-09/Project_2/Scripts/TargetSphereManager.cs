@@ -11,8 +11,6 @@ public class TargetSphereManager : KlotzManager {
 
     private GameObject BtnReloadBullet;
     
-
-
     public override void Start() {
         base.Start();
 
@@ -29,9 +27,9 @@ public class TargetSphereManager : KlotzManager {
     public override GameObject AddKlotz() {
         GameObject newTarget = base.AddKlotz(TargetSphere);
 
-        Vector3 variation = new Vector3(Random.Range(-0.75f, 0.75f),
-                                        Random.Range(-0.75f, 0.75f),
-                                        Random.Range(-0.75f, 0.75f));
+        Vector3 variation = new Vector3(Random.Range(-0.5f, 0.5f),
+                                        Random.Range(-0.5f, 0.5f),
+                                        Random.Range(-0.5f, 0.5f));
 
         Vector3 newPosition = CameraCache.Main.transform.forward * 2 + variation + CameraCache.Main.transform.position;
 

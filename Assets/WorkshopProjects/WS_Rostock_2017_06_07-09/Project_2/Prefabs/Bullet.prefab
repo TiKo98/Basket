@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edd9f0b4fbe22b45897f96c534be536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 2
+  Distance: 1
   billboard: {fileID: 114436244987080018}
   rigi: {fileID: 54372277371777766}
   defaultSurfaceMaterial: {fileID: 2100000, guid: df172103f5fba4a4d8636aeca60cb0d7,

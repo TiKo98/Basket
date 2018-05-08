@@ -8,6 +8,10 @@ public class AdessoLogoManager : KlotzManager {
     [Tooltip("Adesso logo prefab")]
     private GameObject AdessoLogoPrefab;
 
+    /// <summary>
+    /// Adds a gameobject of type 'AdessoLogoPrefab' (<see cref="AdessoLogoPrefab"/>) to the scene
+    /// </summary>
+    /// <returns></returns>
     public override GameObject AddKlotz() {
         return base.AddKlotz(AdessoLogoPrefab);
     }

@@ -8,7 +8,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneMenuReceiver : InteractionReceiver {
-    private string currentScene;
+    private string currentScene; //current active/added scene
 
     private void Start() {
         currentScene = SceneManager.GetActiveScene().name;
@@ -23,13 +23,22 @@ public class SceneMenuReceiver : InteractionReceiver {
     }
 
     private void OnSceneLoaded(Scene mScene, LoadSceneMode mMode) {
+        //update currentScene with newly added scene
         currentScene = mScene.name;
     }
 
     private void OnSceneUnloaded(Scene mScene) {
+        //only MainScene and one other scene should be active
+        //if the other scene is removed/unloaded only MainScene should remain
+        //and is therefore the currentScene
         currentScene = "MainScene";
     }
 
+    /// <summary>
+    /// Handler to capture and process button clicks in the SceneScelectionMenu
+    /// </summary>
+    /// <param name="obj">Gameobject that was clicked</param>
+    /// <param name="eventData">Click event data</param>
     protected override void InputClicked(GameObject obj, InputClickedEventData eventData) {
         switch (obj.name) {
             case "BtnReset":
@@ -37,6 +46,12 @@ public class SceneMenuReceiver : InteractionReceiver {
                 break;
 
             default:
+                /**
+                 * A button used to load a scene should follow the name convention 'Btn<NAME_OF_SCENE>'
+                 * e.g 'BtnAdessoLogo' to easily load a new scene without further 
+                 * logic implementation needed
+                 **/
+
                 string selectedSceneName = obj.name.Replace("Btn", "");
 
                 //check if selected scene is already active
@@ -50,6 +65,10 @@ public class SceneMenuReceiver : InteractionReceiver {
         }
     }
 
+    /// <summary>
+    /// Unloads the currently active scene <see cref="currentScene"/> (unless it is the MainScene)
+    /// </summary>
+    /// <param name="mSceneName"></param>
     private void RemoveScene(string mSceneName) {
         if (currentScene.Equals("MainScene")) {
             return;
@@ -58,6 +77,10 @@ public class SceneMenuReceiver : InteractionReceiver {
         SceneManager.UnloadSceneAsync(mSceneName);
     }
 
+    /// <summary>
+    /// Loads a scene by a given scene name. Before loading the scene, the currently active scene is unloaded <see cref="RemoveScene(string)"/>
+    /// </summary>
+    /// <param name="mSceneName">Scene name</param>
     private void LoadScene(string mSceneName) {
         //remove current scene
         RemoveScene(currentScene);
