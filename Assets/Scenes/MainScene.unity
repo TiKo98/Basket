@@ -271,7 +271,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.082
+      value: -0.041
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1021,10 +1021,6 @@ MonoBehaviour:
     Offset: {x: 0, y: 0}
     Radius: 0
     transform: {fileID: 671785185}
-  - Name: BtnMuhkuh
-    Offset: {x: 0, y: 0}
-    Radius: 0
-    transform: {fileID: 0}
   SurfaceType: 1
   SortType: 1
   OrientType: 1
@@ -1045,7 +1041,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.041
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1238,7 +1234,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.082
+      value: -0.041
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1442,6 +1438,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114968814373150802, guid: ff21ff8ec31b53642a3ef40260d9852a,
+        type: 2}
+      propertyPath: ButtonState
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff21ff8ec31b53642a3ef40260d9852a, type: 2}
   m_IsPrefabParent: 0
@@ -1595,7 +1596,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.041
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y

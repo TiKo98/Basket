@@ -26,7 +26,9 @@ public class SceneMenuReceiver : InteractionReceiver {
     private void LoadInteractables() {
         foreach(GameObject container in InteractableContainers) {
             foreach(Transform child in container.transform) {
-                this.interactables.Add(child.gameObject);
+                if (child.gameObject.activeInHierarchy) {
+                    this.interactables.Add(child.gameObject);
+                }
             }
         }
     }
