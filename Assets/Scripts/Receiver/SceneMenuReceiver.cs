@@ -10,11 +10,25 @@ using UnityEngine.SceneManagement;
 public class SceneMenuReceiver : InteractionReceiver {
     private string currentScene; //current active/added scene
 
+    [SerializeField]
+    [Tooltip("Containers to get Interactables/Buttons from that should receive input. Interactable objects should be the only children of a container and at root")]
+    private List<GameObject> InteractableContainers;
+
     private void Start() {
+        LoadInteractables();
+
         currentScene = SceneManager.GetActiveScene().name;
 
         SceneManager.sceneLoaded += OnSceneLoaded;
         SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void LoadInteractables() {
+        foreach(GameObject container in InteractableContainers) {
+            foreach(Transform child in container.transform) {
+                this.interactables.Add(child.gameObject);
+            }
+        }
     }
 
     private void OnDestroy() {
