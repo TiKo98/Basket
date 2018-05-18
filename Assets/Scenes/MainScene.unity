@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 8
+  serializedVersion: 9
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -39,6 +39,7 @@ RenderSettings:
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -54,11 +55,10 @@ LightmapSettings:
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
-    serializedVersion: 9
+    serializedVersion: 10
     m_Resolution: 2
     m_BakeResolution: 40
-    m_TextureWidth: 1024
-    m_TextureHeight: 1024
+    m_AtlasSize: 1024
     m_AO: 0
     m_AOMaxDistance: 1
     m_CompAOExponent: 1
@@ -271,7 +271,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.041
+      value: -0.082
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -724,14 +724,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fceee1925509464cba3eb44acf1e053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactables:
-  - {fileID: 1957804785}
-  - {fileID: 1696085647}
-  - {fileID: 524419062}
-  - {fileID: 671785184}
-  - {fileID: 927019821}
+  interactables: []
   Targets: []
   lockFocus: 0
+  InteractableContainers:
+  - {fileID: 1054667737}
+  - {fileID: 1162355444}
 --- !u!114 &395608437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,7 +746,7 @@ MonoBehaviour:
   useUnscaledTime: 1
   hideOnStart: 0
   debugDisplaySphere: 1
-  debugDisplayTargetPosition: 0
+  debugDisplayTargetPosition: 1
 --- !u!114 &395608438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -774,11 +772,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 2
---- !u!1 &524419062 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820333246347296, guid: 7bcb89df8599d00448726407181348bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 2079064165}
 --- !u!4 &524419063 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd,
@@ -875,11 +868,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000010330146594, guid: bfdc7f60d7205c84f82a4806a5352d60,
     type: 2}
   m_PrefabInternal: {fileID: 667908394}
---- !u!1 &671785184 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820333246347296, guid: 7bcb89df8599d00448726407181348bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1076573428}
 --- !u!4 &671785185 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd,
@@ -972,11 +960,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4000011656901714, guid: 3eddd1c29199313478dd3f912bfab2ab,
     type: 2}
   m_PrefabInternal: {fileID: 838070527}
---- !u!1 &927019821 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820333246347296, guid: 7bcb89df8599d00448726407181348bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 353626379}
 --- !u!1 &1054667737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1021,10 @@ MonoBehaviour:
     Offset: {x: 0, y: 0}
     Radius: 0
     transform: {fileID: 671785185}
+  - Name: BtnMuhkuh
+    Offset: {x: 0, y: 0}
+    Radius: 0
+    transform: {fileID: 0}
   SurfaceType: 1
   SortType: 1
   OrientType: 1
@@ -1058,7 +1045,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.041
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1251,7 +1238,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.041
+      value: -0.082
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1519,11 +1506,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bfdc7f60d7205c84f82a4806a5352d60, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1696085647 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820333246347296, guid: 7bcb89df8599d00448726407181348bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 216558155}
 --- !u!4 &1696085648 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd,
@@ -1558,11 +1540,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1957804785 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1820333246347296, guid: 7bcb89df8599d00448726407181348bd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1266260731}
 --- !u!4 &1957804786 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd,
@@ -1618,7 +1595,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.041
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4992156184492654, guid: 7bcb89df8599d00448726407181348bd, type: 2}
       propertyPath: m_LocalPosition.y
