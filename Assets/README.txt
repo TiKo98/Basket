@@ -1,4 +1,14 @@
 ﻿/***
+* HILFREICHE LINKS
+***/
+https://github.com/Microsoft/MixedRealityToolkit-Unity
+	https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/master/Assets/HoloToolkit/Input/README.md
+	https://github.com/Microsoft/MixedRealityToolkit-Unity/blob/master/Assets/HoloToolkit/SpatialMapping/README.md
+https://docs.microsoft.com/en-us/windows/mixed-reality/gestures
+https://docs.microsoft.com/en-us/windows/mixed-reality/development
+
+
+/***
 * SCENE HINZUFÜGEN & VIA BUTTON LADEN LASSEN
 ***/
 1. Scenes-Ordner -> Rechtsklick -> Create -> Scene -> Name der Scene eingeben
