@@ -17,23 +17,28 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
 
     private Vector3 headPosition;   //Head/Main Camera position
     private Vector3 gazeDirection;  //Direction the user is gazing
-    private bool isPlacing = false;
+    protected bool isPlacing = false;
 
     private SpatialMappingManager spatialManager;
     [SerializeField]
-    private Billboard billboard;
+    protected Billboard billboard;
     public Rigidbody rigi;
 
     public Material defaultSurfaceMaterial;
     public Material whilePlacingSurfaceMaterial;
 
-    void Start()
+    public bool IsPlacing()
+    {
+        return isPlacing;
+    }
+
+    public virtual void Start()
     {
         spatialManager = SpatialMappingManager.Instance;
         OnInputClicked(null);
     }
 
-    public void OnInputClicked(InputClickedEventData eventData)
+    virtual public void OnInputClicked(InputClickedEventData eventData)
     {
         isPlacing = !isPlacing;
         if (isPlacing)
@@ -45,7 +50,7 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
         else
         {
             billboard.enabled = false;
-            rigi.useGravity = true;
+            rigi.useGravity = true; 
             rigi.isKinematic = false;
         }
 
@@ -59,7 +64,7 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
     }
 
     // Update is called once per frame
-    private void Update()
+    protected void Update()
     {
                
         //If in placing mode, update placement to match users gaze
@@ -97,7 +102,7 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
     /// <summary>
     /// Update display position while placing, based on the users gaze.
     /// </summary>
-    private void UpdatePlacing()
+    virtual public void UpdatePlacing()
     {
         headPosition = Camera.main.transform.position;
         gazeDirection = Camera.main.transform.forward;
@@ -109,6 +114,8 @@ public class PlaceHandler : MonoBehaviour, IInputClickHandler
          * see: linear function
          */
         Vector3 holdAtPosition = gazeDirection * Distance + headPosition; //+ offset
+        //selber ausgedacht
+        holdAtPosition += new Vector3(0, -0.02f, 0);
 
         //Update position
         this.transform.position = holdAtPosition;

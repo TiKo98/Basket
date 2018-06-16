@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SceneSelectionMenu
   - SceneSelectionMenuToolsContent
+  - WorldObject
   layers:
   - Default
   - TransparentFX

@@ -629,7 +629,7 @@ PlayerSettings:
   metroCertificatePassword: 
   metroCertificateSubject: adesso AG
   metroCertificateIssuer: adesso AG
-  metroCertificateNotAfter: 0060d068b8fad401
+  metroCertificateNotAfter: 80abfaf5bb23d501
   metroApplicationDescription: Demo App for Workshop
   wsaImages: {}
   metroTileShortName: HoloLens-Workshop
@@ -655,14 +655,14 @@ PlayerSettings:
       HumanInterfaceDevice: False
       InputInjectionBrokered: False
       InternetClient: False
-      InternetClientServer: True
+      InternetClientServer: False
       Location: False
       Microphone: True
       MusicLibrary: False
       Objects3D: False
       PhoneCall: False
       PicturesLibrary: False
-      PrivateNetworkClientServer: True
+      PrivateNetworkClientServer: False
       Proximity: False
       RemovableStorage: False
       SharedUserCertificates: False
